@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/ -->
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <title>eMercado - Todo lo que busques está aquí</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+  <link href="css/dropzone.css" rel="stylesheet">
+</head>
+
+<body>
+  <!--Barra de Items superior-->
+  <nav class="site-header sticky-top py-1 bg-dark">
+    <div class="container d-flex flex-column flex-md-row justify-content-between">
+      <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
+      <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
+      <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
+      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
+      <!-- Lista desplegable del usuario-->
+      <div class="dropdown">
+        <a class="btn btn-secondary dropdown-toggle py-2 d-none d-md-inline-block username" href="#" role="button"
+          id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item" href="my-profile.html">Mi Perfil</a>
+          <a class="dropdown-item" href="cart.html">Mi carrito</a>
+          <a class="dropdown-item" href="#">Configuraciones</a>
+          <hr>
+          <a class="dropdown-item" href="login.html" onclick="logoutUser()">Cierre de sesion</a>
+        </div>
+      </div>
+  </nav>
+  <!-- CARRO DE COMPRAS -->
+  <div class="container p-5">
+    <div class="text-center">
+      <h1>Lista de Productos</h1>
+      <p class="lead">Selecciona uno de nuestros productos y accede a un descuento</p>
+    </div>
+
+    <div class="row">
+      <div class="col-9">
+        <div id="Carrito"></div>
+      </div>
+      <div class="col-3 select-css">
+        <h4>Tipo de envio</h4>
+          <select id="porcentaje" name="select">
+            <option disabled>Tipo de envio</option>
+            <option selected value="0">Retiro en local </option>
+            <option  value="15">Premium (2-5 días) - Costo del 15% </option>
+            <option value="7">Express (5-8 días) - Costo del 7% </option>
+            <option value="5"> Standard (12 a 15 días) - Costo del 5% </option>  
+          </select>
+        <hr>
+        <h4>Forma de pago</h4>
+        <!--Modal-->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+          Tarjeta de credito
+        </button>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Pago con tarjeta de credito</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <!--Cuerpo modal-->
+              <div class="modal-body">
+                <form action="#" class="credit-card-div">
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+
+                      <div class="row ">
+                        <div class="col-md-12">
+                          <input type="number" class="form-control" placeholder="Numero de tarjeta" required />
+                        </div>
+                      </div>
+                      <div class="row ">
+                        <div class="col-md-3 col-sm-3 col-xs-3">
+                          <span class="help-block text-muted small-font"> Mes de vencimiento</span>
+                          <input type="number" class="form-control" min="0" placeholder="MM" required />
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-xs-3">
+                          <span class="help-block text-muted small-font"> Año de vencimiento</span>
+                          <input type="number" class="form-control" min="0" placeholder="YY" required />
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-xs-3">
+                          <span class="help-block text-muted small-font"> CCV</span>
+                          <input type="number" class="form-control" min="0" placeholder="CCV" required />
+                        </div>
+                        <!--<div class="col-md-3 col-sm-3 col-xs-3">
+                          <img src="######" class="img-rounded" />
+                        </div>-->
+                      </div>
+                      <div class="row ">
+                        <div class="col-md-12 pad-adjust">
+                          <input type="text" class="form-control" placeholder="Nombre en la tarjeta" required />
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 pad-adjust">
+                          <div class="checkbox">
+                            <label>
+                              <input type="checkbox" checked class="text-muted"> Guardar datos de tarjeta</input>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row ">
+                        <div class="col-md-6 col-sm-6 col-xs-6 pad-adjust">
+                          <input type="submit" class="btn btn-danger" data-dismiss="modal" value="CANCELAR" />
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-6 pad-adjust">
+                          <input type="submit" class="btn btn-warning btn-block" value="COMPRAR AHORA" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Modal Cuenta Bancaria-->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+          Cuenta Bancaria
+        </button>
+        <!-- Modal -->
+        <div  class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+          aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <form class="form-horizontal" method="post">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel">Cuenta de Banco</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <!-- Modal Cuerpo-->
+                <div class="modal-body">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="well well-sm"> <fieldset>
+                            <div class="form-group">
+                              <span class="col-md-1 col-md-offset-2 text-center"><i
+                                  class="fa fa-user bigicon"></i></span>
+                              <div class="col-md-8">
+                                Nombre Completo*
+                                <input id="fname" name="name" type="text" class="form-control" required>
+                              </div>
+                            </div>
+                           <!--Selector Tipo de Banco
+                            <div class="form-group">
+                              <span class="col-md-1 col-md-offset-2 text-center"><i
+                                  class="fa fa-user bigicon"></i></span>
+                              <div class="col-md-8">
+                                Entidad Bancaria
+                              <select class="caja">
+                                <option>Banco Santander</option>
+                                <option>BROU</option>
+                                <option>HSBC</option>
+                                <option>BBVA</option>
+                                <option>Heritage</option>
+                              </select>
+                            </div>--> 
+                            <div class="form-group">
+                              <span class="col-md-1 col-md-offset-2 text-center"><i
+                                  class="fa fa-user bigicon"></i></span>
+                              <div class="col-md-8">
+                                Numero de cuenta
+                                <input id="fname" min="0" name="name" type="number" class="form-control" required>
+                              </div>
+                            </div>
+
+                            <div class="form-group">
+                              <span class="col-md-1 col-md-offset-2 text-center"><i
+                                  class="fa fa-envelope-o bigicon"></i></span>
+                              <div class="col-md-8">
+                                Direccion de E-mail
+                                <input id="email" name="email" type="text" class="form-control" required>
+                              </div>
+                            </div>
+
+                            <div class="form-group">
+                              <span class="text-center"></span>
+                              <div class="col-md-8">
+                                Numero de telefono
+                                <input id="phone" min="0" name="phone" type="number" class="form-control" required>
+                              </div>
+                            </div>
+                          </fieldset>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                  <button type="submit" class="btn btn-warning btn-block"> Enviar</button>
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h4>Resumen</h4>
+        <p>Cantidad de productos: <span id="cantidad"></span></p>
+        <p>Subtotal: <span id="subtotal"></span></p>
+        <p>Costo de envio: <span id="costoenvio"></span></p>
+        <p>Total UYU:<span id="totalcompra"></span></p>
+        <button type="submit" class="btn btn-success">Realizar compra</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="spinner-wrapper">
+    <div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/dropzone.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/cart.js"></script>
+</body>
+
+</html>
